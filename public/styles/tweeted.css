@@ -1,0 +1,60 @@
+.posted-tweet {
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #0000002e;
+  margin: 2em;
+  position: relative;
+  height: 200px;
+}
+
+article header {
+  opacity: 0.7;
+  padding: 10px;
+  background-color: #ececec;
+  height: 70px;
+}
+
+img.profile {
+  float: left;
+  border-radius: 6px;
+}
+
+article h2.user-name{
+  float: left;
+  margin-left: 10px;
+  margin-top: 2px;
+}
+
+p.handle {
+  float: right;
+  margin-top: 12px;
+}
+
+p.tweeted-text {
+  margin: 0px;
+  padding: 30px 9px;
+  border-bottom: 1px solid #0000002e;
+}
+
+p.post-time {
+  float: left;
+  margin-left: 10px;
+  font-size: 85%;
+}
+
+article:hover span.icons {
+  display: block;
+}
+
+span.icons {
+  display: none;
+  color: #36bfa8;
+  float: right;
+  margin-right: 10px;
+  margin-top: 13.6px;
+}
+
+article:hover header {
+  opacity: 1;
+}
+

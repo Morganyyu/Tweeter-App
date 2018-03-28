@@ -11,11 +11,15 @@
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweeted.css" type="text/css" />
+
     <!-- External JS -->
     <script type="text/javascript" src="/vendor/jquery-2.2.3.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -31,11 +35,27 @@
       <section class="new-tweet">
         <h2>Compose Tweet</h2>
         <form method="post" action="/tweets/">
-          <textarea name="text" placeholder="What are you humming about?"></textarea>
+          <textarea id="tweet-text" name="text" placeholder="What are you humming about?"></textarea>
           <input type="submit" value="Tweet">
           <span class="counter">140</span>
         </form>
       </section>
+       <article class="posted-tweet">
+         <header class="user-info">
+            <img class="profile" src="https://vanillicon.com/788e533873e80d2002fa14e1412b4188_50.png">
+            <h2 class="user-name">Name</h2>
+            <p class="handle">@wotm8</p>
+         </header>
+         <p class="tweeted-text">This is a tweet!</p>
+         <footer class="tweet-footer">
+            <p class="post-time">10 Days Ago</p>
+            <span class = "icons">
+              <i class="fas fa-flag"></i>
+              <i class="fas fa-retweet"></i>
+              <i class="fas fa-heart"></i>
+            </span>
+         </footer>
+       </article>
     </main>
 
   </body>
