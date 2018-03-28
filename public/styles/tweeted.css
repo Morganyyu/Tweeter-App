@@ -1,4 +1,4 @@
-.posted-tweet {
+.tweet {
   background-color: white;
   border-radius: 6px;
   border: 1px solid #0000002e;
@@ -30,16 +30,21 @@ p.handle {
   margin-top: 12px;
 }
 
-p.tweeted-text {
+p.tweetedtext {
   margin: 0px;
   padding: 30px 9px;
-  border-bottom: 1px solid #0000002e;
+
 }
 
-p.post-time {
+p.postTime {
+  margin-top: 0.90%;
   float: left;
   margin-left: 10px;
   font-size: 85%;
+}
+
+footer {
+  border-top: 1px solid #0000002e;
 }
 
 article:hover span.icons {
