@@ -6,6 +6,12 @@
 
 $(function () {
 
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
   function renderTweets(tweets) {
     tweets.forEach(tweet => {
       const eachTweet = createTweetElement(tweet);
@@ -14,16 +20,16 @@ $(function () {
   }
 
   function createTweetElement(tweet) {
-    let username = tweet.user.name;
+    let username = escape(tweet.user.name);
     let profilepic = tweet.user.avatars.small;
     let theHandle = tweet.user.handle;
-    let tweeterText = tweet.content.text;
-    let posttime = moment(tweet.created_at).fromNow(); // Number
+    let tweeterText = escape(tweet.content.text);
+    let posttime = moment(tweet.created_at).fromNow();
 
     let $tweet = $("<article>").addClass("tweet");
 
     let $header = $("<header>").addClass("user-info");
-    ($tweet).append($header);
+    $tweet.append($header);
 
     let $profilePic = $("<img>").addClass("profile");
     $profilePic.attr("src", profilepic);
@@ -37,9 +43,13 @@ $(function () {
     $handle.append(theHandle);
     $header.append($handle);
 
+    let $textBox = $("<div>");
+    $tweet.append($textBox);
+
     let $tweetedText = $("<p>").addClass("tweetedtext");
     $tweetedText.append(tweeterText);
-    $tweet.append($tweetedText);
+    $textBox.append($tweetedText);
+    // $tweet.append($tweetedText);
 
     let $footer = $("<footer>").addClass("tweet-footer");
     $tweet.append($footer);
@@ -74,7 +84,7 @@ $(function () {
 
   $('#createTweet').on('submit', e => {
     e.preventDefault();
-    if (validate($('#tweet-text').val())) {
+    if (validate(escape($('#tweet-text').val()))) {
       let data = $('#createTweet').serialize();
       $($('#tweet-text').val(''))
       $.post('/tweets', data).done(data => loadTweets(data));
