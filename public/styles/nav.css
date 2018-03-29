@@ -25,3 +25,31 @@
   height: 80px;
   margin-left: 10px;
 }
+
+#nav-bar .compose {
+  float: right;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #e8fdff;
+  border: 1px solid black;
+  color: #36bfa8;
+  text-align: center;
+  font-size: 22px;
+  padding: 20px;
+  width: 150px;
+  margin: 5px;
+}
+
+button:hover #nav-bar .compose {
+  float: right;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+  text-align: center;
+  font-size: 22px;
+  padding: 20px;
+  width: 150px;
+  margin: 5px;
+}

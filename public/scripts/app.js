@@ -69,6 +69,11 @@ $(function () {
     $.get('/tweets').then(data => renderTweets(data));
   }
 
+  $(".compose").on("click", () => {
+    $(".new-tweet").slideToggle();
+    $(".new-tweet textarea").focus();
+  })
+
   $('#createTweet').on('submit', e => {
     e.preventDefault();
     if (validate($('#tweet-text').val())) {
