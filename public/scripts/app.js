@@ -8,8 +8,6 @@ $(function () {
 
   function renderTweets(tweets) {
     tweets.forEach(tweet => {
-      console.log('TIME:', moment(tweet.created_at).fromNow());
-      console.log('tweet.created_at: ', moment(tweet.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a'));
       const eachTweet = createTweetElement(tweet);
       $(".tweets-container").prepend(eachTweet);
     });

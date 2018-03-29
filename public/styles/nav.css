@@ -26,7 +26,7 @@
   margin-left: 10px;
 }
 
-#nav-bar .compose {
+.compose {
   float: right;
   display: inline-block;
   border-radius: 4px;
@@ -40,16 +40,8 @@
   margin: 5px;
 }
 
-button:hover #nav-bar .compose {
-  float: right;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: white;
-  border: 1px solid black;
+.compose:hover {
   color: black;
-  text-align: center;
-  font-size: 22px;
-  padding: 20px;
-  width: 150px;
-  margin: 5px;
+  background-color: white;
 }
+
