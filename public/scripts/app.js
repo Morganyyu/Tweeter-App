@@ -6,6 +6,7 @@ $(function () {
     return div.innerHTML;
   }
 
+  //New tweets will always pop up as the first one from the top
   function renderTweets(tweets) {
     tweets.forEach(tweet => {
       const eachTweet = createTweetElement(tweet);
@@ -13,6 +14,7 @@ $(function () {
     });
   }
 
+  //Building a whole tweet element with js/jQuery instead of HTML
   function createTweetElement(tweet) {
     let username = escape(tweet.user.name);
     let profilepic = tweet.user.avatars.small;
@@ -62,6 +64,7 @@ $(function () {
     return $tweet;
   }
 
+  //Tweet validation function
   function validate(text) {
     return (text === "" || text === null || text === undefined || text.length > 140 || text.length === 0) ? false : true;
   }
@@ -70,11 +73,13 @@ $(function () {
     $.get("/tweets").then(data => renderTweets(data));
   }
 
+  //Tweet form can slide up/down when "Compose" button clicked
   $(".compose").on("click", () => {
     $(".new-tweet").slideToggle();
     $(".new-tweet textarea").focus();
   })
 
+  //Either successfully post a new tweet with tweet-counter reset to 140 or error message
   $("#createTweet").on("submit", e => {
     e.preventDefault();
     if (validate(escape($("#tweet-text").val()))) {
