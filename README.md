@@ -4,6 +4,8 @@ Greetings! Tweeter is a simple, single-page AJAX-based Twitter clone that came t
 
 ## Final Product
 
+!["Screenshot of Compose Tweet Box"](https://github.com/Morganyyu/Tweeter-App/blob/master/docs/Compose%20Tweet%20Box.png)
+!["Screenshot of Tweet Wall"](https://github.com/Morganyyu/Tweeter-App/blob/master/docs/Posted%20Tweets.png)
 
 ## Dependencies
 
