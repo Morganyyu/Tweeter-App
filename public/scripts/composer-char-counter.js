@@ -1,7 +1,3 @@
-// document.addEventListener("DOMContentLoaded", function(event) {
-//   //do work
-// });
-
 $(function() {
   $("#tweet-text").on("keyup", function() {
     let $tweetLength = $(this).val().length;

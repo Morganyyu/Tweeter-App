@@ -1,13 +1,7 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-
 $(function () {
 
   function escape(str) {
-    var div = document.createElement('div');
+    var div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
@@ -49,7 +43,6 @@ $(function () {
     let $tweetedText = $("<p>").addClass("tweetedtext");
     $tweetedText.append(tweeterText);
     $textBox.append($tweetedText);
-    // $tweet.append($tweetedText);
 
     let $footer = $("<footer>").addClass("tweet-footer");
     $tweet.append($footer);
@@ -70,11 +63,11 @@ $(function () {
   }
 
   function validate(text) {
-    return (text === '' || text === null || text === undefined || text.length > 140 || text.length === 0) ? false : true;
+    return (text === "" || text === null || text === undefined || text.length > 140 || text.length === 0) ? false : true;
   }
 
   function loadTweets() {
-    $.get('/tweets').then(data => renderTweets(data));
+    $.get("/tweets").then(data => renderTweets(data));
   }
 
   $(".compose").on("click", () => {
@@ -82,17 +75,17 @@ $(function () {
     $(".new-tweet textarea").focus();
   })
 
-  $('#createTweet').on('submit', e => {
+  $("#createTweet").on("submit", e => {
     e.preventDefault();
-    if (validate(escape($('#tweet-text').val()))) {
-      let data = $('#createTweet').serialize();
-      $($('#tweet-text').val(''))
-      $.post('/tweets', data).done(data => loadTweets(data));
+    if (validate(escape($("#tweet-text").val()))) {
+      let data = $("#createTweet").serialize();
+      $($("#tweet-text").val(""))
+      $.post("/tweets", data).done(data => loadTweets(data));
+      $(".counter").text(140);
     } else {
-      alert('Your tweet is invalid...')
+      alert("Your tweet isn't between 1 to 140 characters.")
     }
   })
-
   loadTweets();
 })
 
