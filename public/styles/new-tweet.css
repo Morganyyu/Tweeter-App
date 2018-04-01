@@ -18,7 +18,7 @@ section textarea {
 
 section.new-tweet h2 {
   margin-top: 0px;
-  border-bottom: 1px solid black
+  border-bottom: 1px solid black;
 }
 
 .counter {

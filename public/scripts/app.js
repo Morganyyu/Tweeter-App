@@ -1,13 +1,14 @@
 $(function () {
 
   function escape(str) {
-    var div = document.createElement("div");
+    let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
   //New tweets will always pop up as the first one from the top
   function renderTweets(tweets) {
+    $(".tweets-container").empty();
     tweets.forEach(tweet => {
       const eachTweet = createTweetElement(tweet);
       $(".tweets-container").prepend(eachTweet);
@@ -66,7 +67,7 @@ $(function () {
 
   //Tweet validation function
   function validate(text) {
-    return (text === "" || text === null || text === undefined || text.length > 140 || text.length === 0) ? false : true;
+    return (text === "" || text === null || text === undefined || text.trim() === "" || text.length > 140 || text.length === 0) ? false : true;
   }
 
   function loadTweets() {
@@ -84,7 +85,7 @@ $(function () {
     e.preventDefault();
     if (validate(escape($("#tweet-text").val()))) {
       let data = $("#createTweet").serialize();
-      $($("#tweet-text").val(""))
+      $($("#tweet-text").val(""));
       $.post("/tweets", data).done(data => loadTweets(data));
       $(".counter").text(140);
     } else {
